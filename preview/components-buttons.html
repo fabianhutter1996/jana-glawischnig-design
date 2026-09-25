@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Button Variants" subtitle="Primary · secondary · ghost · on-dark · chip variants" viewport="700x280" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #fdf9f5; font-family: 'Martel Sans', sans-serif; padding: 24px; }
+  .row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+  .label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.12em; color: #867276; width: 90px; flex-shrink: 0; }
+  .btn { font-family: 'Martel Sans', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 300; border: none; cursor: pointer; display: inline-block; }
+  .btn-primary { background: linear-gradient(to right, #691e36, #86354D); color: #fff; border-radius: 9999px; padding: 14px 32px; box-shadow: 0px 12px 32px rgba(134,53,77,0.18); }
+  .btn-secondary { background: transparent; color: #86354D; border: 1.5px solid rgba(134,53,77,0.35); border-radius: 9999px; padding: 13px 28px; }
+  .btn-ghost { background: transparent; color: #86354D; border: none; padding: 13px 4px; text-decoration: underline; text-underline-offset: 3px; }
+  .btn-dark { background: #fdf9f5; color: #86354D; border-radius: 9999px; padding: 14px 32px; }
+  .btn-dark-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 9999px; padding: 13px 28px; }
+  .dark-bg { background: #31302e; padding: 16px 20px; border-radius: 12px; display: flex; gap: 16px; align-items: center; }
+  .sm { padding: 8px 20px; font-size: 9px; }
+  .chip { font-family: 'Martel Sans', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 300; background: rgba(134,53,77,0.08); color: #86354D; border-radius: 9999px; padding: 5px 14px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="label">Primary</div>
+    <button class="btn btn-primary">Kostenloses Erstgespräch buchen</button>
+    <button class="btn btn-primary sm">Jetzt anfragen</button>
+  </div>
+  <div class="row">
+    <div class="label">Secondary</div>
+    <button class="btn btn-secondary">Leistungen ansehen</button>
+    <button class="btn btn-secondary sm">Termin Vereinbaren</button>
+  </div>
+  <div class="row">
+    <div class="label">Ghost / Link</div>
+    <button class="btn btn-ghost">Mehr erfahren</button>
+  </div>
+  <div class="row">
+    <div class="label">On Dark</div>
+    <div class="dark-bg">
+      <button class="btn btn-dark">Termin Vereinbaren</button>
+      <button class="btn btn-dark-ghost">Leistungen ansehen</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Chip / Tag</div>
+    <span class="chip">Preis auf Anfrage</span>
+    <span class="chip" style="background:rgba(183,192,184,0.2);color:#58605a;">Foundation</span>
+    <span class="chip" style="background:rgba(134,53,77,0.12);color:#86354D;">Meine Empfehlung</span>
+  </div>
+</body>
+</html>

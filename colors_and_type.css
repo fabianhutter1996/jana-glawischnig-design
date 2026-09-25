@@ -1,0 +1,297 @@
+/*
+ * Jana Glawischnig Design System
+ * colors_and_type.css
+ * CSS Custom Properties — compatible with Tailwind config extension
+ * Source: tailwind.config.ts + brand manual
+ */
+
+/* ─── Google Fonts ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;600&family=Martel+Sans:wght@200;300;400;700&family=WindSong&display=swap');
+
+/* ─── Font Variables ───────────────────────────────────────────── */
+:root {
+  --font-playfair:  'Playfair Display', serif;
+  --font-poppins:   'Poppins', sans-serif;
+  --font-martel:    'Martel Sans', sans-serif;
+  --font-windsong:  'WindSong', cursive;
+
+  /* Semantic font roles */
+  --font-headline:  var(--font-playfair);
+  --font-body:      var(--font-poppins);
+  --font-label:     var(--font-martel);
+  --font-script:    var(--font-windsong);
+}
+
+/* ─── Brand Color Tokens ───────────────────────────────────────── */
+:root {
+  /* ── Core brand palette (from brand manual) ── */
+  --color-wild-raspberry:   #86354D;  /* Primary: Wild Raspberry */
+  --color-mellow-apricot:   #F0BB7D;  /* Tertiary / accent: Mellow Apricot */
+  --color-ash-gray:         #B7C0B8;  /* Neutral: Ash Gray */
+  --color-cotton-white:     #FFFBF7;  /* Background: Cotton White */
+  --color-charleston-green: #25272A;  /* Dark: Charleston Green */
+
+  /* ── Surface scale ── */
+  --color-background:                 #fdf9f5;
+  --color-surface:                    #fdf9f5;
+  --color-surface-bright:             #fdf9f5;
+  --color-surface-container-lowest:   #ffffff;
+  --color-surface-container-low:      #f7f3ef;
+  --color-surface-container:          #f1ede9;
+  --color-surface-container-high:     #ebe7e4;
+  --color-surface-container-highest:  #e5e2de;
+  --color-surface-variant:            #e5e2de;
+  --color-surface-dim:                #ddd9d6;
+  --color-surface-tint:               #97425a;
+
+  /* ── On-surface text ── */
+  --color-on-surface:         #1c1c19;
+  --color-on-surface-variant: #544246;
+  --color-on-background:      #1c1c19;
+
+  /* ── Primary (rose / raspberry) ── */
+  --color-primary:                    #691e36;
+  --color-primary-container:          #86354d;
+  --color-primary-fixed:              #ffd9e0;
+  --color-primary-fixed-dim:          #ffb1c3;
+  --color-on-primary:                 #ffffff;
+  --color-on-primary-fixed:           #3f0019;
+  --color-on-primary-fixed-variant:   #792b43;
+  --color-on-primary-container:       #ffadc0;
+
+  /* ── Secondary (sage green) ── */
+  --color-secondary:                  #58605a;
+  --color-secondary-container:        #dce5dc;
+  --color-secondary-fixed:            #dce5dc;
+  --color-secondary-fixed-dim:        #c0c9c1;
+  --color-on-secondary:               #ffffff;
+  --color-on-secondary-container:     #5e6660;
+  --color-on-secondary-fixed:         #151d18;
+  --color-on-secondary-fixed-variant: #404943;
+
+  /* ── Tertiary (warm apricot) ── */
+  --color-tertiary:                   #543300;
+  --color-tertiary-container:         #6f4916;
+  --color-tertiary-fixed:             #ffddb8;
+  --color-tertiary-fixed-dim:         #f2bd7f;
+  --color-on-tertiary:                #ffffff;
+  --color-on-tertiary-container:      #efba7c;
+  --color-on-tertiary-fixed:          #2b1700;
+  --color-on-tertiary-fixed-variant:  #633f0b;
+
+  /* ── Outline ── */
+  --color-outline:         #867276;
+  --color-outline-variant: #d9c1c4;
+
+  /* ── Inverse ── */
+  --color-inverse-surface:    #31302e;
+  --color-inverse-on-surface: #f4f0ec;
+  --color-inverse-primary:    #ffb1c3;
+
+  /* ── Semantic / status ── */
+  --color-error:              #ba1a1a;
+  --color-error-container:    #ffdad6;
+  --color-on-error:           #ffffff;
+  --color-on-error-container: #93000a;
+  --color-success:            #3d6b47;
+  --color-warning:            #7a5200;
+}
+
+/* ─── Typography Scale ─────────────────────────────────────────── */
+:root {
+  /* Display — large hero statements */
+  --text-display-size:    clamp(3rem, 6vw, 5rem);
+  --text-display-family:  var(--font-headline);
+  --text-display-weight:  400;
+  --text-display-style:   italic;
+  --text-display-leading: 1.05;
+
+  /* H1 */
+  --text-h1-size:    clamp(2.25rem, 4.5vw, 4rem);
+  --text-h1-family:  var(--font-headline);
+  --text-h1-weight:  400;
+  --text-h1-leading: 1.1;
+
+  /* H2 */
+  --text-h2-size:    clamp(1.75rem, 3vw, 3rem);
+  --text-h2-family:  var(--font-headline);
+  --text-h2-weight:  400;
+  --text-h2-leading: 1.15;
+
+  /* H3 */
+  --text-h3-size:    clamp(1.25rem, 2vw, 1.75rem);
+  --text-h3-family:  var(--font-headline);
+  --text-h3-weight:  400;
+  --text-h3-leading: 1.2;
+
+  /* Subheading / label — Martel Sans Light uppercase */
+  --text-subheading-size:    0.625rem;   /* 10px */
+  --text-subheading-family:  var(--font-label);
+  --text-subheading-weight:  300;
+  --text-subheading-case:    uppercase;
+  --text-subheading-spacing: 0.3em;
+  --text-subheading-leading: 1.5;
+
+  /* Body */
+  --text-body-size:    0.9375rem;  /* 15px */
+  --text-body-family:  var(--font-body);
+  --text-body-weight:  300;
+  --text-body-leading: 1.7;
+
+  /* Body large */
+  --text-body-lg-size:    1.125rem;
+  --text-body-lg-leading: 1.6;
+
+  /* Caption */
+  --text-caption-size:    0.75rem;
+  --text-caption-family:  var(--font-body);
+  --text-caption-weight:  300;
+  --text-caption-leading: 1.5;
+
+  /* Script / accent — WindSong decorative */
+  --text-script-size:    2rem;
+  --text-script-family:  var(--font-script);
+  --text-script-weight:  400;
+  --text-script-leading: 1.2;
+}
+
+/* ─── Semantic Type Helpers ────────────────────────────────────── */
+.type-display {
+  font-family: var(--text-display-family);
+  font-size: var(--text-display-size);
+  font-weight: var(--text-display-weight);
+  font-style: var(--text-display-style);
+  line-height: var(--text-display-leading);
+}
+.type-h1 {
+  font-family: var(--text-h1-family);
+  font-size: var(--text-h1-size);
+  font-weight: var(--text-h1-weight);
+  line-height: var(--text-h1-leading);
+}
+.type-h2 {
+  font-family: var(--text-h2-family);
+  font-size: var(--text-h2-size);
+  font-weight: var(--text-h2-weight);
+  line-height: var(--text-h2-leading);
+}
+.type-h3 {
+  font-family: var(--text-h3-family);
+  font-size: var(--text-h3-size);
+  font-weight: var(--text-h3-weight);
+  line-height: var(--text-h3-leading);
+}
+.type-subheading {
+  font-family: var(--text-subheading-family);
+  font-size: var(--text-subheading-size);
+  font-weight: var(--text-subheading-weight);
+  text-transform: var(--text-subheading-case);
+  letter-spacing: var(--text-subheading-spacing);
+  line-height: var(--text-subheading-leading);
+}
+.type-body {
+  font-family: var(--text-body-family);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-leading);
+}
+.type-body-lg {
+  font-family: var(--text-body-family);
+  font-size: var(--text-body-lg-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-lg-leading);
+}
+.type-caption {
+  font-family: var(--text-caption-family);
+  font-size: var(--text-caption-size);
+  font-weight: var(--text-caption-weight);
+  line-height: var(--text-caption-leading);
+}
+.type-script {
+  font-family: var(--text-script-family);
+  font-size: var(--text-script-size);
+  font-weight: var(--text-script-weight);
+  line-height: var(--text-script-leading);
+}
+
+/* ─── Spacing Scale ────────────────────────────────────────────── */
+:root {
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+}
+
+/* ─── Border Radius ────────────────────────────────────────────── */
+:root {
+  --radius-sm:   0.25rem;   /*  4px — default */
+  --radius-md:   0.5rem;    /*  8px — lg */
+  --radius-lg:   0.75rem;   /* 12px — xl */
+  --radius-xl:   1rem;      /* 16px */
+  --radius-2xl:  1.5rem;    /* 24px — cards */
+  --radius-full: 9999px;    /* pill — buttons, tags */
+}
+
+/* ─── Shadow System ────────────────────────────────────────────── */
+:root {
+  --shadow-editorial: 0px 12px 32px rgba(134, 53, 77, 0.06);
+  --shadow-card:      0 10px 40px -10px rgba(134, 53, 77, 0.08);
+  --shadow-subtle:    0 2px 8px rgba(134, 53, 77, 0.04);
+  --shadow-elevated:  0 20px 60px -15px rgba(134, 53, 77, 0.12);
+}
+
+/* ─── Glass / Blur ─────────────────────────────────────────────── */
+:root {
+  --glass-nav-bg:     rgba(253, 249, 245, 0.8);
+  --glass-nav-blur:   24px;
+  --glass-overlay-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Animations ───────────────────────────────────────────────── */
+:root {
+  --ease-out:  cubic-bezier(0.0, 0.0, 0.2, 1); /* @kind other */
+  --ease-in:   cubic-bezier(0.4, 0.0, 1, 1); /* @kind other */
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* @kind other */
+  --duration-fast:   150ms; /* @kind other */
+  --duration-base:   300ms; /* @kind other */
+  --duration-slow:   600ms; /* @kind other */
+  --duration-reveal: 700ms; /* @kind other */
+}
+
+/* ─── Tailwind v3 config extension snippet ─────────────────────── */
+/*
+  In tailwind.config.ts, extend with:
+
+  theme: {
+    extend: {
+      colors: { ...same as existing config... },
+      fontFamily: {
+        headline: ['Playfair Display', 'serif'],
+        body:     ['Poppins', 'sans-serif'],
+        label:    ['Martel Sans', 'sans-serif'],
+        script:   ['WindSong', 'cursive'],
+      },
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        lg:      '0.5rem',
+        xl:      '0.75rem',
+        '2xl':   '1.5rem',
+        full:    '9999px',
+      },
+      boxShadow: {
+        editorial: '0px 12px 32px rgba(134, 53, 77, 0.06)',
+        card:      '0 10px 40px -10px rgba(134, 53, 77, 0.08)',
+        elevated:  '0 20px 60px -15px rgba(134, 53, 77, 0.12)',
+      },
+    },
+  },
+*/

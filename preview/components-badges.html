@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Badges, Tags & Progress" subtitle="Badges · pill tags · progress bars · step indicator" viewport="700x340" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #fdf9f5; font-family: 'Martel Sans', sans-serif; padding: 24px; }
+  .section { margin-bottom: 20px; }
+  .section-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.15em; color: #867276; margin-bottom: 10px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .badge { font-size: 8px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 300; border-radius: 9999px; padding: 5px 14px; }
+  .progress-wrap { margin-bottom: 12px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: #544246; margin-bottom: 6px; }
+  .progress-track { height: 4px; background: rgba(134,53,77,0.1); border-radius: 9999px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 9999px; background: linear-gradient(to right, #691e36, #86354D); }
+  .step-row { display: flex; gap: 0; }
+  .step { display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .step-dot { width: 20px; height: 20px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 300; }
+  .step-line { height: 2px; flex: 1; background: rgba(134,53,77,0.15); margin-top: 9px; }
+  .step-line.active { background: #86354D; }
+  .step-label { font-size: 7px; text-transform: uppercase; letter-spacing: 0.08em; color: #867276; margin-top: 4px; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="section">
+    <div class="section-label">Badges</div>
+    <div class="row">
+      <span class="badge" style="background:rgba(134,53,77,0.08);color:#86354D;">Preis auf Anfrage</span>
+      <span class="badge" style="background:rgba(134,53,77,1);color:#fff;">Meine Empfehlung</span>
+      <span class="badge" style="background:rgba(183,192,184,0.2);color:#58605a;">Foundation</span>
+      <span class="badge" style="background:rgba(240,187,125,0.2);color:#543300;">Growth</span>
+      <span class="badge" style="background:rgba(28,28,25,0.06);color:#1c1c19;">Authority</span>
+      <span class="badge" style="background:#ffdad6;color:#93000a;">Fehler</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Progress Bars</div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Redaktionsplanung</span><span>80%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Community Management</span><span>45%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:45%"></div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Meta Ads</span><span>60%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Step Indicator</div>
+    <div style="display:flex;align-items:center;gap:0;width:100%;">
+      <div class="step"><div class="step-dot" style="background:#86354D;color:#fff;">01</div><div class="step-label">Planung</div></div>
+      <div class="step-line active"></div>
+      <div class="step"><div class="step-dot" style="background:#86354D;color:#fff;">02</div><div class="step-label">Recherche</div></div>
+      <div class="step-line active"></div>
+      <div class="step"><div class="step-dot" style="background:rgba(134,53,77,0.15);color:#86354D;">03</div><div class="step-label">Shotlist</div></div>
+      <div class="step-line"></div>
+      <div class="step"><div class="step-dot" style="background:rgba(134,53,77,0.08);color:#86767680;">04</div><div class="step-label">Videodreh</div></div>
+      <div class="step-line"></div>
+      <div class="step"><div class="step-dot" style="background:rgba(134,53,77,0.08);color:#86767680;">05</div><div class="step-label">Produktion</div></div>
+      <div class="step-line"></div>
+      <div class="step"><div class="step-dot" style="background:rgba(134,53,77,0.08);color:#86767680;">06</div><div class="step-label">Launch</div></div>
+    </div>
+  </div>
+</body>
+</html>

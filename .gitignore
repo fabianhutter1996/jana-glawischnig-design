@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+# Lokal für den Skill, nicht öffentlich (Repo ist public)
+uploads/
+brand_manual_extract.txt

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Jana Glawischnig — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400&family=Martel+Sans:wght@200;300;400;700&family=WindSong&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; box-sizing: border-box; }
+
+  :root {
+    --raspberry:   #86354D;
+    --raspberry-dk:#691e36;
+    --apricot:     #F0BB7D;
+    --ash:         #B7C0B8;
+    --cotton:      #FFFBF7;
+    --surface:     #fdf9f5;
+    --charleston:  #25272A;
+    --inverse:     #31302e;
+    --on-surface:  #1c1c19;
+    --on-var:      #544246;
+    --outline:     #867276;
+
+    --font-playfair: 'Playfair Display', serif;
+    --font-poppins:  'Poppins', sans-serif;
+    --font-martel:   'Martel Sans', sans-serif;
+    --font-windsong: 'WindSong', cursive;
+  }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    background: var(--surface);
+    font-family: var(--font-martel);
+    color: var(--on-surface);
+  }
+
+  /* ── PAGE LAYOUT ── */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    padding: 14mm 16mm;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child { break-after: auto; page-break-after: auto; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10mm;
+    padding-bottom: 3mm;
+    border-bottom: 0.5px solid rgba(134,53,77,0.12);
+  }
+  .page-header .section-name {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--raspberry);
+    font-weight: 300;
+  }
+  .page-header .doc-name {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--outline);
+    font-weight: 300;
+  }
+
+  /* ── SECTION LABELS ── */
+  .sec-label {
+    font-size: 7.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--outline);
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  /* ── COVER ── */
+  .page-cover {
+    background: var(--inverse);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 210mm;
+  }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover-logo img { height: 52px; filter: brightness(0) invert(1); }
+  .cover-tag {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+    margin-top: 4px;
+    text-align: right;
+  }
+  .cover-body { flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 12mm 0 8mm; }
+  .cover-script { font-family: var(--font-windsong); font-size: 3.2rem; color: var(--apricot); line-height: 1; margin-bottom: 6px; }
+  .cover-title { font-family: var(--font-playfair); font-size: 3.6rem; color: #fff; font-weight: 400; line-height: 1.05; }
+  .cover-title em { font-style: italic; color: rgba(255,255,255,0.6); }
+  .cover-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.3); font-weight: 300; margin-top: 12px; }
+  .cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  .cover-date { font-size: 8px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25); font-weight: 300; }
+  .cover-accent-bar { display: flex; gap: 6px; }
+  .cover-accent-bar span { display: block; width: 32px; height: 4px; border-radius: 9999px; }
+
+  /* ── COLORS ── */
+  .swatch-row { display: flex; gap: 8px; margin-bottom: 8mm; }
+  .swatch { flex: 1; }
+  .swatch-block { height: 60px; border-radius: 10px; }
+  .swatch-info { padding: 6px 2px 0; }
+  .swatch-name { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--on-var); font-weight: 300; }
+  .swatch-hex  { font-size: 9.5px; color: var(--on-surface); margin-top: 1px; }
+  .swatch-role { font-size: 7px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--outline); margin-top: 1px; }
+
+  .tint-row { display: flex; gap: 5px; margin-bottom: 4mm; align-items: center; }
+  .tint-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--on-var); width: 80px; flex-shrink: 0; font-weight: 300; }
+  .tint { flex: 1; height: 28px; border-radius: 5px; }
+  .tint-pct { font-size: 7px; color: var(--outline); text-align: center; margin-top: 2px; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 6px 0; border-bottom: 0.5px solid rgba(134,53,77,0.06); }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { width: 120px; flex-shrink: 0; }
+  .type-meta-name { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--outline); }
+  .type-meta-detail { font-size: 6.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ash); margin-top: 1px; }
+  .type-specimen { flex: 1; }
+  .font-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 4mm; }
+  .font-col-label { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--outline); margin-bottom: 8px; font-weight: 300; }
+
+  /* ── SPACING ── */
+  .spacing-tokens { display: flex; gap: 6px; align-items: flex-end; margin-bottom: 8mm; }
+  .spacing-token { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .spacing-bar { background: rgba(134,53,77,0.15); border-radius: 3px; width: 22px; }
+  .token-name { font-size: 6px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--outline); }
+  .token-val  { font-size: 7px; color: var(--raspberry); }
+
+  .radius-row { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 8mm; }
+  .radius-token { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .radius-swatch { width: 52px; height: 36px; background: #fff; border: 1.5px solid rgba(134,53,77,0.15); }
+
+  .shadow-row { display: flex; gap: 16px; }
+  .shadow-card { width: 100px; height: 44px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+
+  /* ── BUTTONS ── */
+  .btn-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .btn-label { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--outline); width: 78px; flex-shrink: 0; }
+  .btn { font-family: var(--font-martel); font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 300; border: none; cursor: default; display: inline-block; }
+  .btn-primary { background: linear-gradient(to right, #691e36, #86354D); color: #fff; border-radius: 9999px; padding: 10px 24px; box-shadow: 0px 8px 24px rgba(134,53,77,0.18); }
+  .btn-secondary { background: transparent; color: #86354D; border: 1.5px solid rgba(134,53,77,0.35); border-radius: 9999px; padding: 9px 20px; }
+  .btn-ghost { background: transparent; color: #86354D; border: none; padding: 9px 4px; text-decoration: underline; text-underline-offset: 3px; }
+  .dark-bg { background: var(--inverse); padding: 12px 16px; border-radius: 10px; display: flex; gap: 12px; align-items: center; }
+  .btn-dark { background: var(--surface); color: #86354D; border-radius: 9999px; padding: 10px 24px; }
+  .btn-dark-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 9999px; padding: 9px 20px; }
+  .chip { font-family: var(--font-martel); font-size: 8px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 300; border-radius: 9999px; padding: 4px 12px; }
+
+  /* ── CARDS ── */
+  .cards-row { display: flex; gap: 12px; }
+  .ds-card { background: #fff; border-radius: 18px; padding: 18px; flex: 1; box-shadow: 0 8px 32px -8px rgba(134,53,77,0.08); }
+  .ds-card-featured { background: #fff; border-radius: 18px; padding: 18px; flex: 1; box-shadow: 0 8px 32px -8px rgba(134,53,77,0.1); border: 2px solid #86354D; position: relative; overflow: hidden; }
+  .card-tag { position: absolute; top: 0; right: 0; background: #86354D; color: #fff; font-family: var(--font-martel); font-size: 7px; text-transform: uppercase; letter-spacing: 0.12em; padding: 5px 12px; border-bottom-left-radius: 8px; }
+  .card-eyebrow { font-family: var(--font-martel); font-size: 7px; text-transform: uppercase; letter-spacing: 0.2em; color: #58605a; margin-bottom: 5px; font-weight: 300; }
+  .card-title { font-family: var(--font-playfair); font-size: 1rem; color: var(--on-surface); margin-bottom: 7px; }
+  .card-body { font-size: 10px; color: rgba(84,66,70,0.6); line-height: 1.6; font-weight: 300; margin-bottom: 10px; }
+  .card-badge { display: inline-block; font-family: var(--font-martel); font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 9999px; padding: 4px 10px; }
+  .service-icon { width: 32px; height: 32px; background: rgba(134,53,77,0.06); border-radius: 9999px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; }
+  .dot { width: 5px; height: 5px; border-radius: 9999px; background: #86354D; }
+
+  /* ── BADGES ── */
+  .badge { font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 300; border-radius: 9999px; padding: 4px 12px; }
+  .progress-wrap { margin-bottom: 8px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-var); margin-bottom: 4px; }
+  .progress-track { height: 3px; background: rgba(134,53,77,0.1); border-radius: 9999px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 9999px; background: linear-gradient(to right, #691e36, #86354D); }
+
+  /* ── LOGOS ── */
+  .logo-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+  .logo-cell { display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 10px 10px; }
+  .logo-cell img { max-height: 56px; max-width: 100%; object-fit: contain; }
+  .logo-name { font-size: 7px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--outline); margin-top: 8px; text-align: center; }
+  .bg-warm { background: #FFFBF7; border: 1px solid rgba(134,53,77,0.08); }
+  .bg-dark { background: #25272A; }
+  .bg-dark .logo-name { color: rgba(255,255,255,0.35); }
+  .bg-apricot { background: #F0BB7D; }
+  .bg-apricot .logo-name { color: rgba(255,255,255,0.6); }
+  .bg-raspberry { background: #86354D; }
+  .bg-raspberry .logo-name { color: rgba(255,255,255,0.6); }
+
+  /* ── ICONS ── */
+  .icon-row { display: flex; gap: 8px; margin-bottom: 16px; }
+  .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .icon-cell img { width: 48px; height: 48px; object-fit: contain; }
+  .icon-plain { background: #fff; border: 1px solid rgba(134,53,77,0.08); border-radius: 8px; padding: 8px; }
+  .icon-circle { border-radius: 8px; padding: 3px; background: rgba(134,53,77,0.04); }
+  .icon-name { font-size: 6.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--outline); text-align: center; }
+
+  /* ── FORMS ── */
+  .form-preview { background: var(--inverse); border-radius: 14px; padding: 20px; }
+  .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-label { font-family: var(--font-martel); font-size: 8px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(228,226,222,0.55); display: block; margin-bottom: 5px; font-weight: 300; }
+  .form-input { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(228,226,222,0.2); border-radius: 8px; padding: 10px 14px; color: #f4f0ec; font-family: var(--font-poppins); font-size: 11px; font-weight: 300; }
+  .form-input-error { border-color: rgba(186,26,26,0.5); }
+  .form-error-msg { font-size: 9px; color: #ffdad6; margin-top: 3px; font-family: var(--font-martel); font-weight: 300; letter-spacing: 0.05em; }
+  .form-btn { width: 100%; padding: 12px; border-radius: 9999px; background: var(--surface); color: #86354D; border: none; font-family: var(--font-martel); font-size: 9px; text-transform: uppercase; letter-spacing: 0.18em; }
+
+  /* ── NAV ── */
+  .nav-preview { background: rgba(253,249,245,0.97); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid rgba(134,53,77,0.06); border-radius: 10px; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-link { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 300; color: rgba(28,28,25,0.55); }
+  .nav-cta { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 300; color: #86354D; border: 1px solid rgba(134,53,77,0.3); border-radius: 9999px; padding: 7px 16px; }
+
+  /* ── IMAGES ── */
+  .images-row { display: flex; gap: 16px; align-items: flex-start; }
+  .img-round { width: 88px; height: 88px; border-radius: 9999px; object-fit: cover; border: 2px solid rgba(134,53,77,0.15); }
+  .img-blob { width: 120px; height: 160px; object-fit: cover; object-position: top; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  .img-card-style { width: 120px; height: 160px; object-fit: cover; object-position: top; border-radius: 20px; box-shadow: 0 8px 32px -8px rgba(134,53,77,0.12); }
+
+  /* ── PRINT ── */
+  @media print {
+    @page { size: A4 landscape; margin: 0; }
+    body { background: #fdf9f5; }
+    .page { width: 297mm; min-height: 210mm; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE 1: COVER ══════════════════════════════════════════════ -->
+<div class="page page-cover">
+  <div class="cover-top">
+    <div class="cover-logo">
+      <img src="assets/logos/JG_Hauptlogo.svg" alt="Jana Glawischnig">
+    </div>
+    <div class="cover-tag">
+      Design System<br>Version 1.0 · April 2025
+    </div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-script">Brand &</div>
+    <div class="cover-title">Design <em>System</em></div>
+    <div class="cover-sub">Jana Glawischnig · Social Media Management</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-date">office@janaglawischnig.com</div>
+    <div class="cover-accent-bar">
+      <span style="background:#86354D"></span>
+      <span style="background:#F0BB7D"></span>
+      <span style="background:#B7C0B8"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 2: LOGOS & BRAND ASSETS ══════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Brand Logos</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-cell bg-warm">
+      <img src="assets/logos/JG_Hauptlogo.svg" alt="Hauptlogo">
+      <div class="logo-name">Hauptlogo</div>
+    </div>
+    <div class="logo-cell bg-dark">
+      <img src="assets/logos/JG_Hauptlogo.svg" alt="Hauptlogo dark" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Hauptlogo — auf Dunkel</div>
+    </div>
+    <div class="logo-cell bg-apricot">
+      <img src="assets/logos/JG_Hauptlogo.svg" alt="Hauptlogo apricot" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Hauptlogo — auf Apricot</div>
+    </div>
+    <div class="logo-cell bg-raspberry">
+      <img src="assets/logos/JG_Hauptlogo.svg" alt="Hauptlogo raspberry" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Hauptlogo — auf Primär</div>
+    </div>
+    <div class="logo-cell bg-warm">
+      <img src="assets/logos/JG_Isotyp.svg" alt="Isotyp">
+      <div class="logo-name">Isotyp</div>
+    </div>
+    <div class="logo-cell bg-dark">
+      <img src="assets/logos/JG_Isotyp.svg" alt="Isotyp dark" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Isotyp — auf Dunkel</div>
+    </div>
+    <div class="logo-cell bg-raspberry">
+      <img src="assets/logos/JG_Isotyp.svg" alt="Isotyp raspberry" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Isotyp — auf Primär</div>
+    </div>
+    <div class="logo-cell bg-warm">
+      <img src="assets/logos/JG_Isotyp_Handgeschrieben.svg" alt="Isotyp handwritten">
+      <div class="logo-name">Isotyp Handgeschrieben</div>
+    </div>
+    <div class="logo-cell bg-warm">
+      <img src="assets/logos/JG_Sekundaerlogo.svg" alt="Sekundärlogo">
+      <div class="logo-name">Sekundärlogo 01</div>
+    </div>
+    <div class="logo-cell bg-warm">
+      <img src="assets/logos/JG_Sekundaerlogo_mitClaim.svg" alt="Sekundärlogo Claim">
+      <div class="logo-name">Sekundärlogo 02 mit Claim</div>
+    </div>
+    <div class="logo-cell bg-dark">
+      <img src="assets/logos/JG_Sekundaerlogo_mitClaimSM.svg" alt="Sekundärlogo ClaimSM" style="filter:brightness(0) invert(1)">
+      <div class="logo-name">Sekundärlogo 03 Claim SM</div>
+    </div>
+    <div class="logo-cell bg-warm">
+      <img src="assets/favicon/web-app-manifest-192x192.png" alt="Favicon" style="max-height:52px;max-width:52px;border-radius:8px;">
+      <div class="logo-name">Favicon / App Icon</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 3: COLORS ════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Colors</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div class="sec-label">Brand Palette</div>
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch-block" style="background:#86354D"></div>
+      <div class="swatch-info"><div class="swatch-name">Wild Raspberry</div><div class="swatch-hex">#86354D</div><div class="swatch-role">Primary</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#691e36"></div>
+      <div class="swatch-info"><div class="swatch-name">Raspberry Dark</div><div class="swatch-hex">#691E36</div><div class="swatch-role">Primary Deep</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#F0BB7D"></div>
+      <div class="swatch-info"><div class="swatch-name">Mellow Apricot</div><div class="swatch-hex">#F0BB7D</div><div class="swatch-role">Tertiary</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#ffddb8"></div>
+      <div class="swatch-info"><div class="swatch-name">Apricot Light</div><div class="swatch-hex">#FFDDB8</div><div class="swatch-role">Tertiary Fixed</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#B7C0B8"></div>
+      <div class="swatch-info"><div class="swatch-name">Ash Gray</div><div class="swatch-hex">#B7C0B8</div><div class="swatch-role">Neutral</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#FFFBF7; border:1px solid rgba(134,53,77,0.1)"></div>
+      <div class="swatch-info"><div class="swatch-name">Cotton White</div><div class="swatch-hex">#FFFBF7</div><div class="swatch-role">Background</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#25272A"></div>
+      <div class="swatch-info"><div class="swatch-name">Charleston Green</div><div class="swatch-hex">#25272A</div><div class="swatch-role">Dark</div></div>
+    </div>
+  </div>
+
+  <div class="sec-label">Tints</div>
+  <div class="tint-row">
+    <div class="tint-label">Wild Raspberry</div>
+    <div><div class="tint" style="background:rgba(134,53,77,0.20)"></div><div class="tint-pct">20%</div></div>
+    <div><div class="tint" style="background:rgba(134,53,77,0.40)"></div><div class="tint-pct">40%</div></div>
+    <div><div class="tint" style="background:rgba(134,53,77,0.60)"></div><div class="tint-pct">60%</div></div>
+    <div><div class="tint" style="background:rgba(134,53,77,0.80)"></div><div class="tint-pct">80%</div></div>
+    <div><div class="tint" style="background:#86354D"></div><div class="tint-pct">100%</div></div>
+  </div>
+  <div class="tint-row">
+    <div class="tint-label">Mellow Apricot</div>
+    <div><div class="tint" style="background:rgba(240,187,125,0.20)"></div><div class="tint-pct">20%</div></div>
+    <div><div class="tint" style="background:rgba(240,187,125,0.40)"></div><div class="tint-pct">40%</div></div>
+    <div><div class="tint" style="background:rgba(240,187,125,0.60)"></div><div class="tint-pct">60%</div></div>
+    <div><div class="tint" style="background:rgba(240,187,125,0.80)"></div><div class="tint-pct">80%</div></div>
+    <div><div class="tint" style="background:#F0BB7D"></div><div class="tint-pct">100%</div></div>
+  </div>
+  <div class="tint-row">
+    <div class="tint-label">Ash Gray</div>
+    <div><div class="tint" style="background:rgba(183,192,184,0.20)"></div><div class="tint-pct">20%</div></div>
+    <div><div class="tint" style="background:rgba(183,192,184,0.40)"></div><div class="tint-pct">40%</div></div>
+    <div><div class="tint" style="background:rgba(183,192,184,0.60)"></div><div class="tint-pct">60%</div></div>
+    <div><div class="tint" style="background:rgba(183,192,184,0.80)"></div><div class="tint-pct">80%</div></div>
+    <div><div class="tint" style="background:#B7C0B8"></div><div class="tint-pct">100%</div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:6mm;">
+    <div>
+      <div class="sec-label" style="margin-bottom:5px">Surface Scale</div>
+      <div style="display:flex;gap:6px;">
+        <div class="swatch"><div class="swatch-block" style="background:#ffffff;height:44px;border:1px solid rgba(134,53,77,0.08)"></div><div class="swatch-info"><div class="swatch-name">Lowest</div><div class="swatch-hex">#FFF</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#f7f3ef;height:44px;"></div><div class="swatch-info"><div class="swatch-name">Low</div><div class="swatch-hex">#F7F3EF</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#fdf9f5;height:44px;border:1px solid rgba(134,53,77,0.06)"></div><div class="swatch-info"><div class="swatch-name">Surface</div><div class="swatch-hex">#FDF9F5</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#ebe7e4;height:44px;"></div><div class="swatch-info"><div class="swatch-name">High</div><div class="swatch-hex">#EBE7E4</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#31302e;height:44px;"></div><div class="swatch-info"><div class="swatch-name">Inverse</div><div class="swatch-hex">#31302E</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label" style="margin-bottom:5px">Semantic</div>
+      <div style="display:flex;gap:6px;">
+        <div class="swatch"><div class="swatch-block" style="background:#1c1c19;height:44px;"></div><div class="swatch-info"><div class="swatch-name">On Surface</div><div class="swatch-hex">#1C1C19</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#544246;height:44px;"></div><div class="swatch-info"><div class="swatch-name">On Var.</div><div class="swatch-hex">#544246</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#867276;height:44px;"></div><div class="swatch-info"><div class="swatch-name">Outline</div><div class="swatch-hex">#867276</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#ba1a1a;height:44px;"></div><div class="swatch-info"><div class="swatch-name">Error</div><div class="swatch-hex">#BA1A1A</div></div></div>
+        <div class="swatch"><div class="swatch-block" style="background:#3d6b47;height:44px;"></div><div class="swatch-info"><div class="swatch-name">Success</div><div class="swatch-hex">#3D6B47</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 4: TYPOGRAPHY ════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Typography</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm;">
+    <!-- Left: type scale -->
+    <div>
+      <div class="sec-label">Type Scale</div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">Display</div><div class="type-meta-detail">Playfair · Italic · clamp(3–5rem)</div></div>
+        <div class="type-specimen" style="font-family:'Playfair Display',serif;font-size:2.4rem;font-style:italic;line-height:1.05;">Mehrwert</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">H1</div><div class="type-meta-detail">Playfair · 400 · clamp(2.25–4rem)</div></div>
+        <div class="type-specimen" style="font-family:'Playfair Display',serif;font-size:1.7rem;line-height:1.1;">Sichtbarkeit durch <span style="font-style:italic">Mehrwert</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">H2</div><div class="type-meta-detail">Playfair · 400 · clamp(1.75–3rem)</div></div>
+        <div class="type-specimen" style="font-family:'Playfair Display',serif;font-size:1.3rem;line-height:1.15;">Was ich für euch übernehme</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">H3</div><div class="type-meta-detail">Playfair · 400 · clamp(1.25–1.75rem)</div></div>
+        <div class="type-specimen" style="font-family:'Playfair Display',serif;font-size:1.1rem;line-height:1.2;">Content Production</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">Script</div><div class="type-meta-detail">WindSong · 400 · 2rem</div></div>
+        <div class="type-specimen" style="font-family:'WindSong',cursive;font-size:1.8rem;color:#86354D;">Let's work together</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">Subheading</div><div class="type-meta-detail">Martel Sans · 300 · 10px · CAPS</div></div>
+        <div class="type-specimen" style="font-family:'Martel Sans',sans-serif;font-size:10px;font-weight:300;text-transform:uppercase;letter-spacing:0.3em;color:#86354D;">Expertise</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-detail">Poppins · 300 · 15px</div></div>
+        <div class="type-specimen" style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:300;line-height:1.7;color:rgba(28,28,25,0.8);">Kreativität mit Herz trifft auf strategische Präzision. Gemeinsam erschaffen wir eine digitale Präsenz, die nicht nur gesehen, sondern gefühlt wird.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="type-meta-name">Caption</div><div class="type-meta-detail">Poppins · 300 · 12px</div></div>
+        <div class="type-specimen" style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:300;color:rgba(134,118,118,0.6);">Preis auf Anfrage · office@janaglawischnig.com</div>
+      </div>
+    </div>
+
+    <!-- Right: font specimens -->
+    <div style="display:flex;flex-direction:column;gap:5mm;">
+      <div>
+        <div class="font-col-label">Playfair Display — Headline</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--on-surface);line-height:1.05;">Jana</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--on-surface);margin-bottom:2px;">Glawischnig</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-style:italic;color:#86354D;line-height:1.05;">Jana</div>
+        <div style="font-family:'Playfair Display',serif;font-size:8px;color:rgba(134,118,118,0.4);margin-top:4px;letter-spacing:0.03em;">AaBbCcDdEeFfGgHh 0123456789</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;">
+        <div>
+          <div class="font-col-label">Poppins Light — Body</div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:300;font-size:1.2rem;color:var(--on-surface);margin-bottom:3px;">Authentizität</div>
+          <div style="font-family:'Poppins',sans-serif;font-weight:300;font-size:11px;color:var(--on-var);line-height:1.6;">Kreativität mit Herz trifft auf strategische Präzision und echten Mehrwert.</div>
+        </div>
+        <div>
+          <div class="font-col-label">Martel Sans — Label</div>
+          <div style="font-family:'Martel Sans',sans-serif;font-weight:300;font-size:8.5px;text-transform:uppercase;letter-spacing:0.3em;color:#86354D;margin-bottom:8px;">EXPERTISE · BUNDLES</div>
+          <div style="font-family:'Martel Sans',sans-serif;font-weight:300;font-size:8.5px;text-transform:uppercase;letter-spacing:0.15em;color:var(--on-var);">Termin Vereinbaren</div>
+          <div style="font-family:'Martel Sans',sans-serif;font-weight:300;font-size:8.5px;text-transform:uppercase;letter-spacing:0.15em;color:var(--on-var);margin-top:3px;">Jetzt anfragen</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-col-label">WindSong — Script Accent</div>
+        <div style="font-family:'WindSong',cursive;font-size:2.4rem;color:#86354D;line-height:1.1;">Social Media</div>
+        <div style="font-family:'WindSong',cursive;font-size:1.7rem;color:rgba(28,28,25,0.35);">Management</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 5: SPACING & TOKENS ══════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Spacing, Radius & Shadows</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div class="sec-label">Spacing Scale</div>
+  <div class="spacing-tokens">
+    <div class="spacing-token"><div class="spacing-bar" style="height:4px"></div><div class="token-name">1</div><div class="token-val">4px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:8px"></div><div class="token-name">2</div><div class="token-val">8px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:12px"></div><div class="token-name">3</div><div class="token-val">12px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:16px"></div><div class="token-name">4</div><div class="token-val">16px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:20px"></div><div class="token-name">5</div><div class="token-val">20px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:24px"></div><div class="token-name">6</div><div class="token-val">24px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:32px"></div><div class="token-name">8</div><div class="token-val">32px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:40px"></div><div class="token-name">10</div><div class="token-val">40px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:48px"></div><div class="token-name">12</div><div class="token-val">48px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:64px"></div><div class="token-name">16</div><div class="token-val">64px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:80px"></div><div class="token-name">20</div><div class="token-val">80px</div></div>
+    <div class="spacing-token"><div class="spacing-bar" style="height:96px"></div><div class="token-name">24</div><div class="token-val">96px</div></div>
+  </div>
+
+  <div class="sec-label">Border Radius</div>
+  <div class="radius-row">
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:4px"></div><div class="token-name">sm / default</div><div class="token-val">4px</div></div>
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:8px"></div><div class="token-name">md / lg</div><div class="token-val">8px</div></div>
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:12px"></div><div class="token-name">lg / xl</div><div class="token-val">12px</div></div>
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:16px"></div><div class="token-name">xl</div><div class="token-val">16px</div></div>
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:24px"></div><div class="token-name">2xl — Cards</div><div class="token-val">24px</div></div>
+    <div class="radius-token"><div class="radius-swatch" style="border-radius:9999px"></div><div class="token-name">full — Buttons</div><div class="token-val">9999px</div></div>
+  </div>
+
+  <div class="sec-label">Shadows</div>
+  <div class="shadow-row">
+    <div class="spacing-token">
+      <div class="shadow-card" style="box-shadow:0 2px 8px rgba(134,53,77,0.04)"></div>
+      <div class="token-name">Subtle</div><div class="token-val">0 2px 8px · 4%</div>
+    </div>
+    <div class="spacing-token">
+      <div class="shadow-card" style="box-shadow:0 10px 40px -10px rgba(134,53,77,0.08)"></div>
+      <div class="token-name">Card</div><div class="token-val">0 10px 40px · 8%</div>
+    </div>
+    <div class="spacing-token">
+      <div class="shadow-card" style="box-shadow:0px 12px 32px rgba(134,53,77,0.06)"></div>
+      <div class="token-name">Editorial</div><div class="token-val">0 12px 32px · 6%</div>
+    </div>
+    <div class="spacing-token">
+      <div class="shadow-card" style="box-shadow:0 20px 60px -15px rgba(134,53,77,0.12)"></div>
+      <div class="token-name">Elevated</div><div class="token-val">0 20px 60px · 12%</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 6: COMPONENTS — BUTTONS & BADGES ═════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Components — Buttons & Badges</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm;">
+    <div>
+      <div class="sec-label">Buttons</div>
+      <div class="btn-row">
+        <div class="btn-label">Primary</div>
+        <div class="btn btn-primary">Kostenloses Erstgespräch buchen</div>
+      </div>
+      <div class="btn-row">
+        <div class="btn-label">Secondary</div>
+        <div class="btn btn-secondary">Leistungen ansehen</div>
+      </div>
+      <div class="btn-row">
+        <div class="btn-label">Ghost / Link</div>
+        <div class="btn btn-ghost">Mehr erfahren</div>
+      </div>
+      <div class="btn-row">
+        <div class="btn-label">On Dark</div>
+        <div class="dark-bg">
+          <div class="btn btn-dark">Termin Vereinbaren</div>
+          <div class="btn btn-dark-ghost">Leistungen ansehen</div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <div class="btn-label">Chips / Tags</div>
+        <span class="chip" style="background:rgba(134,53,77,0.08);color:#86354D;">Preis auf Anfrage</span>
+        <span class="chip" style="background:rgba(183,192,184,0.2);color:#58605a;">Foundation</span>
+        <span class="chip" style="background:rgba(134,53,77,0.12);color:#86354D;">Empfehlung</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-label" style="margin-bottom:8px;">Badges</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+        <span class="badge" style="background:rgba(134,53,77,0.08);color:#86354D;">Preis auf Anfrage</span>
+        <span class="badge" style="background:rgba(134,53,77,1);color:#fff;">Meine Empfehlung</span>
+        <span class="badge" style="background:rgba(183,192,184,0.2);color:#58605a;">Foundation</span>
+        <span class="badge" style="background:rgba(240,187,125,0.2);color:#543300;">Growth</span>
+        <span class="badge" style="background:#ffdad6;color:#93000a;">Fehler</span>
+      </div>
+
+      <div class="sec-label" style="margin-bottom:8px;">Progress Bars</div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Redaktionsplanung</span><span>80%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Community Management</span><span>45%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:45%"></div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Meta Ads</span><span>60%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+      </div>
+
+      <div class="sec-label" style="margin-top:10px;margin-bottom:8px;">Step Indicator</div>
+      <div style="display:flex;align-items:center;gap:0;width:100%;">
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:#86354D;color:#fff;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">01</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Planung</div>
+        </div>
+        <div style="height:2px;flex:1;background:#86354D;margin-top:-12px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:#86354D;color:#fff;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">02</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Recherche</div>
+        </div>
+        <div style="height:2px;flex:1;background:rgba(134,53,77,0.15);margin-top:-12px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:rgba(134,53,77,0.15);color:#86354D;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">03</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Shotlist</div>
+        </div>
+        <div style="height:2px;flex:1;background:rgba(134,53,77,0.08);margin-top:-12px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:rgba(134,53,77,0.06);color:rgba(134,118,118,0.5);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">04</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Videodreh</div>
+        </div>
+        <div style="height:2px;flex:1;background:rgba(134,53,77,0.08);margin-top:-12px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:rgba(134,53,77,0.06);color:rgba(134,118,118,0.5);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">05</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Produktion</div>
+        </div>
+        <div style="height:2px;flex:1;background:rgba(134,53,77,0.08);margin-top:-12px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+          <div style="width:18px;height:18px;border-radius:9999px;background:rgba(134,53,77,0.06);color:rgba(134,118,118,0.5);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:300;">06</div>
+          <div style="font-size:6.5px;text-transform:uppercase;letter-spacing:0.08em;color:#867276;margin-top:3px;">Launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 7: COMPONENTS — CARDS, NAV, FORMS ════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Components — Cards, Navigation & Forms</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div class="sec-label">Cards</div>
+  <div class="cards-row" style="margin-bottom:6mm;">
+    <div class="ds-card">
+      <div class="service-icon"><div class="dot"></div></div>
+      <div class="card-eyebrow">Content Production</div>
+      <div class="card-title">Kreativität trifft <em>Strategie</em></div>
+      <div class="card-body">Hochwertiger visueller Content, der Ihre Markenidentität präzise widerspiegelt.</div>
+      <div class="card-badge" style="background:rgba(134,53,77,0.08);color:#86354D;">Mehr erfahren</div>
+    </div>
+    <div class="ds-card-featured">
+      <div class="card-tag">Meine Empfehlung</div>
+      <div class="card-eyebrow" style="margin-top:4px;">Growth</div>
+      <div class="card-title">The Growth <em>Bundle</em></div>
+      <div class="card-body" style="font-family:'Martel Sans',sans-serif;font-size:7px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(134,53,77,0.8);">Sichtbarkeit, die nicht nur schön ist — sondern wirkt.</div>
+      <div class="card-badge" style="background:rgba(134,53,77,0.1);color:#86354D;">Preis auf Anfrage</div>
+    </div>
+    <div class="ds-card" style="background:#fdf9f5;border:1px solid rgba(134,53,77,0.08);">
+      <div class="card-eyebrow">Kontakt</div>
+      <div class="card-title" style="font-size:0.9rem;">Bereit für den nächsten Schritt?</div>
+      <div class="card-body">In einem kostenlosen 20-minütigen Gespräch analysieren wir eure Situation.</div>
+      <div class="card-badge" style="background:transparent;color:#86354D;padding-left:0;">→ Termin buchen</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm;">
+    <div>
+      <div class="sec-label">Navigation</div>
+      <div class="nav-preview" style="margin-bottom:6mm;">
+        <img src="assets/logos/JG_Hauptlogo.svg" alt="Logo" style="height:40px;width:auto;">
+        <div class="nav-links">
+          <span class="nav-link">Expertise</span>
+          <span class="nav-link">Bundles</span>
+          <span class="nav-link">Kontakt</span>
+          <span class="nav-cta">Termin Vereinbaren</span>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="sec-label">Contact Form</div>
+  <div class="form-preview">
+    <div class="form-cols">
+      <div>
+        <label class="form-label">Name</label>
+        <div class="form-input" style="display:block;color:#f4f0ec;">Andrea Müller</div>
+      </div>
+      <div>
+        <label class="form-label">E-Mail</label>
+        <div class="form-input form-input-error" style="display:block;color:#f4f0ec;">andrea@</div>
+        <div class="form-error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+      </div>
+      <div style="grid-column:span 2">
+        <label class="form-label">Nachricht</label>
+        <div class="form-input" style="display:block;min-height:44px;color:rgba(228,226,222,0.3);">Erzähl mir von deiner Marke...</div>
+      </div>
+      <div></div>
+      <div><div class="form-btn" style="display:block;text-align:center;">Nachricht senden</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 8: ICONS & IMAGES ═════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="section-name">Brand Icons & Images</div>
+    <div class="doc-name">Jana Glawischnig Design System</div>
+  </div>
+
+  <div class="sec-label">Brand Icons — Plain</div>
+  <div class="icon-row" style="margin-bottom:10px;">
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon1.png" alt="Icon 1"></div><div class="icon-name">Icon 1</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon2.png" alt="Icon 2"></div><div class="icon-name">Icon 2</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon3.png" alt="Icon 3"></div><div class="icon-name">Icon 3</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon4.png" alt="Icon 4"></div><div class="icon-name">Icon 4</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon5.png" alt="Icon 5"></div><div class="icon-name">Icon 5</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon6.png" alt="Icon 6"></div><div class="icon-name">Icon 6</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon7.png" alt="Icon 7"></div><div class="icon-name">Icon 7</div></div>
+    <div class="icon-cell"><div class="icon-plain"><img src="assets/icons/JG_Icon8.png" alt="Icon 8"></div><div class="icon-name">Icon 8</div></div>
+  </div>
+
+  <div class="sec-label">Brand Icons — With Circle Frame</div>
+  <div class="icon-row" style="margin-bottom:8mm;">
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon1_mitKreis.png" alt="Icon 1 Kreis"></div><div class="icon-name">Icon 1</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon2_mitKreis.png" alt="Icon 2 Kreis"></div><div class="icon-name">Icon 2</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon3_mitKreis.png" alt="Icon 3 Kreis"></div><div class="icon-name">Icon 3</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon4_mitKreis.png" alt="Icon 4 Kreis"></div><div class="icon-name">Icon 4</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon5_mitKreis.png" alt="Icon 5 Kreis"></div><div class="icon-name">Icon 5</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon6_mitKreis.png" alt="Icon 6 Kreis"></div><div class="icon-name">Icon 6</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon7_mitKreis.png" alt="Icon 7 Kreis"></div><div class="icon-name">Icon 7</div></div>
+    <div class="icon-cell"><div class="icon-circle"><img src="assets/icons/JG_Icon8_mitKreis.png" alt="Icon 8 Kreis"></div><div class="icon-name">Icon 8</div></div>
+  </div>
+
+  <div class="sec-label">Photography / Image Treatments</div>
+  <div class="images-row">
+    <div style="flex:1">
+      <img src="assets/images/hero.webp" alt="Hero" style="width:100%;height:180px;object-fit:cover;object-position:top;border-radius:18px;box-shadow:0 8px 32px -8px rgba(134,53,77,0.12);">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Hero portrait — card crop</div>
+    </div>
+    <div>
+      <img src="assets/images/hero.webp" alt="Hero blob" class="img-blob" style="object-position:top;">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Organic blob crop</div>
+    </div>
+    <div>
+      <img src="assets/images/hero.webp" alt="Hero round" class="img-round" style="object-position:top;">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Round / avatar</div>
+    </div>
+    <div>
+      <img class="img-round" src="assets/images/JG_SocialMediaProfilbild_1.jpg" alt="Profile 1">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Profilbild 1</div>
+    </div>
+    <div>
+      <img class="img-blob" src="assets/images/JG_SocialMediaProfilbild_1.jpg" alt="Profile blob">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Blob crop</div>
+    </div>
+    <div>
+      <img class="img-card-style" src="assets/images/JG_SocialMediaProfilbild_2.jpg" alt="Profile 2">
+      <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.1em;color:var(--outline);margin-top:6px;text-align:center;">Profilbild 2 — card</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div style="font-family:'WindSong',cursive;font-size:1.8rem;color:#86354D;">Jana<br>Glawischnig</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.fonts.ready.then(() => {
+    setTimeout(() => { window.print(); }, 500);
+  });
+</script>
+</body>
+</html>

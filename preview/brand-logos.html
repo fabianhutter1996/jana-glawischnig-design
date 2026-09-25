@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Logos" subtitle="Hauptlogo · Isotyp · Handgeschrieben · light/dark variants" viewport="700x320" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #fdf9f5; font-family: 'Martel Sans', sans-serif; padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .cell { display: flex; flex-direction: column; align-items: center; border-radius: 12px; padding: 20px 12px 12px; }
+  .cell img { max-height: 72px; max-width: 100%; object-fit: contain; }
+  .cell-dark { background: #25272A; }
+  .cell-warm { background: #FFFBF7; border: 1px solid rgba(134,53,77,0.08); }
+  .cell-apricot { background: #F0BB7D; }
+  .cell-raspberry { background: #86354D; }
+  .name { font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: #867276; margin-top: 10px; text-align: center; }
+  .cell-dark .name { color: rgba(255,255,255,0.4); }
+  .cell-apricot .name, .cell-raspberry .name { color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <!-- Hauptlogo -->
+    <div class="cell cell-warm">
+      <img src="../assets/logos/JG_Hauptlogo.svg?v=5" alt="Hauptlogo">
+      <div class="name">Hauptlogo</div>
+    </div>
+    <div class="cell cell-dark">
+      <img src="../assets/logos/JG_Hauptlogo.svg?v=5" alt="Hauptlogo dark" style="filter:brightness(0) invert(1)">
+      <div class="name">Hauptlogo — auf Dunkel</div>
+    </div>
+    <div class="cell cell-apricot">
+      <img src="../assets/logos/JG_Hauptlogo.svg?v=5" alt="Hauptlogo apricot" style="filter:brightness(0) invert(1)">
+      <div class="name">Hauptlogo — auf Apricot</div>
+    </div>
+    <div class="cell cell-raspberry">
+      <img src="../assets/logos/JG_Hauptlogo.svg?v=5" alt="Hauptlogo raspberry" style="filter:brightness(0) invert(1)">
+      <div class="name">Hauptlogo — auf Primär</div>
+    </div>
+    <!-- Isotyp -->
+    <div class="cell cell-warm">
+      <img src="../assets/logos/JG_Isotyp.svg?v=5" alt="Isotyp">
+      <div class="name">Isotyp</div>
+    </div>
+    <div class="cell cell-dark">
+      <img src="../assets/logos/JG_Isotyp.svg?v=5" alt="Isotyp dark" style="filter:brightness(0) invert(1)">
+      <div class="name">Isotyp — auf Dunkel</div>
+    </div>
+    <div class="cell cell-raspberry">
+      <img src="../assets/logos/JG_Isotyp.svg?v=5" alt="Isotyp raspberry" style="filter:brightness(0) invert(1)">
+      <div class="name">Isotyp — auf Primär</div>
+    </div>
+    <div class="cell cell-warm">
+      <img src="../assets/logos/JG_Isotyp_Handgeschrieben.svg?v=5" alt="Isotyp handwritten">
+      <div class="name">Isotyp Handgeschrieben</div>
+    </div>
+    <!-- Sekundärlogos -->
+    <div class="cell cell-warm">
+      <img src="../assets/logos/JG_Sekundaerlogo.svg?v=5" alt="Sekundärlogo">
+      <div class="name">Sekundärlogo 01</div>
+    </div>
+    <div class="cell cell-warm">
+      <img src="../assets/logos/JG_Sekundaerlogo_mitClaim.svg?v=5" alt="Sekundärlogo mit Claim">
+      <div class="name">Sekundärlogo 02 mit Claim</div>
+    </div>
+    <div class="cell cell-dark">
+      <img src="../assets/logos/JG_Sekundaerlogo_mitClaimSM.svg?v=5" alt="Sekundärlogo mit Claim SM" style="filter:brightness(0) invert(1)">
+      <div class="name">Sekundärlogo 03 Claim SM</div>
+    </div>
+    <!-- Favicon -->
+    <div class="cell cell-warm">
+      <img src="../assets/favicon/web-app-manifest-192x192.png" alt="Favicon" style="max-height:64px;max-width:64px;border-radius:8px;">
+      <div class="name">Favicon / App Icon</div>
+    </div>
+  </div>
+</body>
+</html>

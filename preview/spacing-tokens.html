@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Spacing" name="Spacing Tokens" subtitle="4px base grid — spacing scale from 4–96px" viewport="700x200" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #fdf9f5; font-family: 'Martel Sans', sans-serif; padding: 20px 24px; }
+  .section-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.15em; color: #867276; margin-bottom: 12px; }
+  .tokens { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 20px; }
+  .token { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .bar { background: rgba(134,53,77,0.15); border-radius: 3px; width: 28px; }
+  .name { font-size: 7px; text-transform: uppercase; letter-spacing: 0.08em; color: #867276; }
+  .val  { font-size: 8px; color: #86354D; }
+</style>
+</head>
+<body>
+  <div class="section-label">Spacing Scale</div>
+  <div class="tokens">
+    <div class="token"><div class="bar" style="height:4px"></div><div class="name">1</div><div class="val">4px</div></div>
+    <div class="token"><div class="bar" style="height:8px"></div><div class="name">2</div><div class="val">8px</div></div>
+    <div class="token"><div class="bar" style="height:12px"></div><div class="name">3</div><div class="val">12px</div></div>
+    <div class="token"><div class="bar" style="height:16px"></div><div class="name">4</div><div class="val">16px</div></div>
+    <div class="token"><div class="bar" style="height:20px"></div><div class="name">5</div><div class="val">20px</div></div>
+    <div class="token"><div class="bar" style="height:24px"></div><div class="name">6</div><div class="val">24px</div></div>
+    <div class="token"><div class="bar" style="height:32px"></div><div class="name">8</div><div class="val">32px</div></div>
+    <div class="token"><div class="bar" style="height:40px"></div><div class="name">10</div><div class="val">40px</div></div>
+    <div class="token"><div class="bar" style="height:48px"></div><div class="name">12</div><div class="val">48px</div></div>
+    <div class="token"><div class="bar" style="height:64px"></div><div class="name">16</div><div class="val">64px</div></div>
+    <div class="token"><div class="bar" style="height:80px"></div><div class="name">20</div><div class="val">80px</div></div>
+    <div class="token"><div class="bar" style="height:96px"></div><div class="name">24</div><div class="val">96px</div></div>
+  </div>
+</body>
+</html>

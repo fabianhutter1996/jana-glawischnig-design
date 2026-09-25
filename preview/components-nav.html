@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Navigation & Header" subtitle="Glass nav + section header pattern" viewport="700x200" -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { background: #f1ede9; font-family: 'Martel Sans', sans-serif; padding: 0; }
+  nav { background: rgba(253,249,245,0.9); backdrop-filter: blur(24px); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(134,53,77,0.06); }
+  .nav-links { display: flex; gap: 40px; align-items: center; }
+  .nav-link { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 300; color: rgba(28,28,25,0.6); text-decoration: none; }
+  .nav-link:hover { color: #86354D; }
+  .nav-cta { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 300; color: #86354D; border: 1px solid rgba(134,53,77,0.3); border-radius: 9999px; padding: 8px 20px; text-decoration: none; }
+  .logo-placeholder { height: 48px; display: flex; align-items: center; }
+  .logo-text { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: #1c1c19; font-weight: 300; }
+  .page-bg { background: #fdf9f5; padding: 40px 32px; }
+  .section-eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.3em; color: #86354D; margin-bottom: 10px; font-weight: 300; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: #1c1c19; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo-placeholder">
+      <img src="../assets/logos/JG_Hauptlogo.svg" alt="Jana Glawischnig" style="height:48px;width:auto;" onerror="this.style.display='none';this.nextSibling.style.display='flex'">
+      <div class="logo-text" style="display:none">Jana Glawischnig</div>
+    </div>
+    <div class="nav-links">
+      <a class="nav-link" href="#">Expertise</a>
+      <a class="nav-link" href="#">Bundles</a>
+      <a class="nav-link" href="#">Kontakt</a>
+      <a class="nav-cta" href="#">Termin Vereinbaren</a>
+    </div>
+  </nav>
+  <div class="page-bg">
+    <div class="section-eyebrow">Expertise</div>
+    <div class="section-title">Was ich für euch <span style="font-style:italic">übernehme</span></div>
+  </div>
+</body>
+</html>
