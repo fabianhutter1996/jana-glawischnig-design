@@ -9,13 +9,14 @@ Quelle ist der Claude-Design-Export (alles außer `package.json`, `tailwind.pres
 - `tailwind.config.ts`: `presets: [require('@jana/design/tailwind.preset')]`
 - `layout.tsx`: `import '@jana/design/tokens.css'` vor `./globals.css`; Fonts per `next/font/google` mit `variable: '--font-playfair'` usw., Klassen auf `<body>` (nicht `<html>`, sonst gewinnen die Fallbacks aus `tokens.css`).
 
-**Typografie (ab v1.1.0):** Das Preset liefert die Typo-Skala aus `tokens.css` als Klassen — keine Tailwind-Standardgrößen (`text-sm`, `text-4xl` …) für Text nutzen.
+**Typografie (ab v1.1.0, `text-label` ab v1.2.0):** Das Preset liefert die Typo-Skala aus `tokens.css` als Klassen — keine Tailwind-Standardgrößen (`text-sm`, `text-4xl` …) für Text nutzen.
 
 | Klasse | Rolle |
 |---|---|
 | `text-display` | Hero-Statement, Playfair kursiv |
 | `text-h1` · `text-h2` · `text-h3` | Überschriften, Playfair 400, gerade — kursiv nur ein Betonungswort (`<em className="italic">`) |
-| `text-eyebrow` | Martel 300, 10 px, UPPERCASE, 0.3em — ersetzt `text-[10px] uppercase tracking-widest` |
+| `text-eyebrow` | Martel 300, 10 px, UPPERCASE, 0.3em — Section- und Card-Eyebrows |
+| `text-label` | wie Eyebrow, aber 0.15em — Buttons, Nav-Links, Chips, Formular-Labels, Footer-Links (ab v1.2.0) |
 | `text-body` · `text-body-lg` | Fließtext Poppins 300 |
 | `text-caption` | Bildunterschrift, Kleingedrucktes |
 | `text-script` | WindSong-Akzent |

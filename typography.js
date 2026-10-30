@@ -36,6 +36,9 @@ function build(fontFamily) {
       '.text-h3':      scale('h3'),
       // Token-Gruppe heißt im Export „subheading", in den Apps „Eyebrow"
       '.text-eyebrow': { ...scale('subheading'), textTransform: v('subheading-case'), letterSpacing: v('subheading-spacing') },
+      // Buttons, Nav, Chips, Formular-Labels: wie Eyebrow, aber 0.15em (preview/components-buttons.html, -nav.html).
+      // Kein eigenes Token im Export, daher der Wert hier.
+      '.text-label':   { ...scale('subheading'), textTransform: v('subheading-case'), letterSpacing: '0.15em' },
       '.text-body':    body,
       '.text-body-lg': { ...body, fontSize: v('body-lg-size'), lineHeight: v('body-lg-leading') },
       '.text-caption': scale('caption'),
