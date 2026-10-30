@@ -1,6 +1,16 @@
 // Tailwind-Preset für alle Jana-Apps. Farben werden von `npm run sync` gegen colors_and_type.css geprüft.
+const typography = require('./typography.js')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  plugins: [
+    // components-Layer: `italic`, `text-primary`, `md:text-5xl` usw. überschreiben die Typo-Klassen weiterhin
+    ({ addBase, addComponents, theme }) => {
+      const { base, utilities } = typography.build(theme('fontFamily'))
+      addBase(base)
+      addComponents(utilities)
+    },
+  ],
   theme: {
     extend: {
       colors: {

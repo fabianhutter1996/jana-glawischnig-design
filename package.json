@@ -1,9 +1,9 @@
 {
   "name": "@jana/design",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Jana Glawischnig Design System — Tokens, Tailwind-Preset, Brand-Assets",
   "private": true,
-  "files": ["tokens.css", "tailwind.preset.js", "assets"],
+  "files": ["tokens.css", "tailwind.preset.js", "typography.js", "assets"],
   "exports": {
     "./tokens.css": "./tokens.css",
     "./tailwind.preset": "./tailwind.preset.js",
