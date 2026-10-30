@@ -37,8 +37,9 @@ function build(fontFamily) {
       // Token-Gruppe heißt im Export „subheading", in den Apps „Eyebrow"
       '.text-eyebrow': { ...scale('subheading'), textTransform: v('subheading-case'), letterSpacing: v('subheading-spacing') },
       // Buttons, Nav, Chips, Formular-Labels: wie Eyebrow, aber 0.15em (preview/components-buttons.html, -nav.html).
-      // Kein eigenes Token im Export, daher der Wert hier.
-      '.text-label':   { ...scale('subheading'), textTransform: v('subheading-case'), letterSpacing: '0.15em' },
+      // 11 statt 10 px: bewusste Abweichung (Fabian, 2026-10-30), 10 px Martel 300 war in Nav und Buttons zu zart.
+      // Kein eigenes Token im Export, daher die Werte hier.
+      '.text-label':   { ...scale('subheading'), fontSize: '0.6875rem', textTransform: v('subheading-case'), letterSpacing: '0.15em' },
       '.text-body':    body,
       '.text-body-lg': { ...body, fontSize: v('body-lg-size'), lineHeight: v('body-lg-leading') },
       '.text-caption': scale('caption'),

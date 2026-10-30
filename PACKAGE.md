@@ -16,7 +16,7 @@ Quelle ist der Claude-Design-Export (alles außer `package.json`, `tailwind.pres
 | `text-display` | Hero-Statement, Playfair kursiv |
 | `text-h1` · `text-h2` · `text-h3` | Überschriften, Playfair 400, gerade — kursiv nur ein Betonungswort (`<em className="italic">`) |
 | `text-eyebrow` | Martel 300, 10 px, UPPERCASE, 0.3em — Section- und Card-Eyebrows |
-| `text-label` | wie Eyebrow, aber 0.15em — Buttons, Nav-Links, Chips, Formular-Labels, Footer-Links (ab v1.2.0) |
+| `text-label` | Martel 300, **11 px**, UPPERCASE, 0.15em — Buttons, Nav-Links, Chips, Formular-Labels, Footer-Links (ab v1.2.0; 11 px ab v1.3.0, bewusst größer als die DS-Vorschau) |
 | `text-body` · `text-body-lg` | Fließtext Poppins 300 |
 | `text-caption` | Bildunterschrift, Kleingedrucktes |
 | `text-script` | WindSong-Akzent |
